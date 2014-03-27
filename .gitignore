@@ -3,4 +3,5 @@
 .vagrant
 Gemfile.local
 bin
-vendor
+config/*.yaml
+src/puppetlabs
