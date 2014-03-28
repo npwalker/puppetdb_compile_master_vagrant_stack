@@ -1,0 +1,5 @@
+---
+# Boxes from http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/
+# Updated: 2014-03-12
+boxes:
+  'solaris-10u11-x64-vb4210': 'http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/solaris-10u11-x64-vb4210.box'

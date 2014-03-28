@@ -19,6 +19,7 @@ if defined? Oscar
   # effect this behavior.
   config_dirs = %w[
     data/puppet-debugging-kit
+    data/puppet-debugging-kit/internal
     config
   ].map{|d| File.expand_path(d, vagrant_dir)}
 
