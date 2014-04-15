@@ -68,6 +68,36 @@ roles:
           export PATH=/opt/rh/ruby193/root/usr/local/bin:$PATH
           EOF
 
+  poss-yum-repos:
+    provisioners:
+      - type: shell
+        inline: | # Configure yum.puppetlabs.com on supported platforms.
+          if rpm --quiet -q puppetlabs-release; then
+            echo 'Puppet Labs repo present.'
+          else
+            if [ -f /etc/fedora-release ]; then
+              RH_DIST='fedora'
+            else
+              RH_DIST='el'
+            fi
+            RH_VERS=$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))
+
+            echo "Adding Puppet Labs repo for $RH_DIST $RH_VERS."
+
+            rpm -ivh "http://yum.puppetlabs.com/puppetlabs-release-$RH_DIST-$RH_VERS.noarch.rpm"
+          fi
+
+  poss-apt-repos:
+    provisioners:
+      - type: shell
+        inline: | # Configure apt.puppetlabs.com on supported platforms.
+          dpkg -s puppetlabs-release | grep -q '^Status:.* installed' || {
+            apt-get install -y curl
+            curl -O http://apt.puppetlabs.com/puppetlabs-release-$(lsb_release -c -s).deb
+            dpkg -i puppetlabs-release-$(lsb_release -c -s).deb
+            apt-get -y -f -m update
+          }
+
   poss-envpuppet:
     synced_folders:
       - {host_path: 'src/puppetlabs', guest_path: '/puppetlabs'}
@@ -86,6 +116,14 @@ roles:
   pe-forward-console:
     forwarded_ports:
       - {guest: 443, host: 4443, auto_correct: true}
+
+  pe-322-master:
+    provisioners:
+      - {type: pe_bootstrap, role: !ruby/sym master, version: '3.2.2'}
+
+  pe-322-agent:
+    provisioners:
+      - {type: pe_bootstrap, master: 'pe-322-master.puppetdebug.vlan', version: '3.2.2'}
 
   pe-321-master:
     provisioners:
