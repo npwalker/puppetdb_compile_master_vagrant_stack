@@ -1,5 +1,10 @@
 ---
 # Boxes from http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/
-# Updated: 2014-03-12
+# Updated: 2014-04-23
 boxes:
   'solaris-10u11-x64-vb4210': 'http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/solaris-10u11-x64-vb4210.box'
+
+  # OS X boxes require VMware Fusion.
+  'osx-108-x64-vf503-nocm': 'http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/osx-108-x64-vf503-nocm.box'
+  # And the 10.9 box requires Fusion 6 or newer.
+  'osx-109-x64-vmware-nocm': 'http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/osx-109-x64-vmware-nocm.box'
