@@ -79,6 +79,15 @@ roles:
           export PATH=/opt/rh/ruby193/root/usr/local/bin:$PATH
           EOF
 
+          source /opt/rh/ruby193/enable
+
+          if ruby -e "begin require 'json'; rescue LoadError; exit(1); end"; then
+            echo "JSON library available."
+          else
+            echo "Installing json_pure gem."
+            gem install --no-rdoc --no-ri json_pure
+          fi
+
   poss-yum-repos:
     provisioners:
       - type: shell
@@ -120,6 +129,11 @@ roles:
           export ENVPUPPET_BASEDIR=/puppetlabs
           eval $($ENVPUPPET_BASEDIR/puppet/ext/envpuppet)
           EOF
+
+          source /etc/profile.d/envpuppet.sh
+
+          puppet resource group puppet ensure=present
+          puppet resource user puppet ensure=present gid=puppet shell='/sbin/nologin'
 
 
   # PE Specific Roles
