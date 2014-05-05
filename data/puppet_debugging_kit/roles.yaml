@@ -36,6 +36,7 @@ roles:
   # Puppet Open Source Roles
   # ========================
   el-6-repos:
+    depreciated-role: 'Use poss-yum-repos and el-6-epel instead'
     provisioners:
       - type: shell
         inline: |
@@ -86,6 +87,13 @@ roles:
           else
             echo "Installing json_pure gem."
             gem install --no-rdoc --no-ri json_pure
+          fi
+
+          if ruby -e "begin require 'rgen'; rescue LoadError; exit(1); end"; then
+            echo "RGen library available."
+          else
+            echo "Installing rgen gem."
+            gem install --no-rdoc --no-ri rgen
           fi
 
   poss-yum-repos:
@@ -141,6 +149,14 @@ roles:
   pe-forward-console:
     forwarded_ports:
       - {guest: 443, host: 4443, auto_correct: true}
+
+  pe-323-master:
+    provisioners:
+      - {type: pe_bootstrap, role: !ruby/sym master, version: '3.2.3'}
+
+  pe-323-agent:
+    provisioners:
+      - {type: pe_bootstrap, master: 'pe-323-master.puppetdebug.vlan', version: '3.2.3'}
 
   pe-322-master:
     provisioners:
