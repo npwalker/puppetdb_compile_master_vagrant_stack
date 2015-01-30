@@ -3,6 +3,7 @@
 # Updated: 2015-01-29
 boxes:
   'windows-2012r2-x64-virtualbox-nocm': 'http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/win2012r2-x64-virtualbox-nocm.box'
+  'windows-2008r2-x64-virtualbox-nocm': 'http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/windows-server-2008r2-x64-virtualbox-nocm.box'
   'solaris-10u11-i386-virtualbox-nocm': 'http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/solaris-10u11-i386-virtualbox-nocm.box'
   'solaris-11.2-i386-virtualbox-nocm': 'http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/solaris-11.2-i386-virtualbox-nocm.box'
 
