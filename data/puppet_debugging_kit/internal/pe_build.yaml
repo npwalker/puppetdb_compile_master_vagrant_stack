@@ -1,4 +1,4 @@
 ---
 pe_build:
-  version: 3.7.1
+  version: 3.7.2
   download_root: 'http://pe-releases.puppetlabs.lan/:version'
