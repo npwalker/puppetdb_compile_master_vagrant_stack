@@ -6,7 +6,7 @@ vms:
 
   - name: pe-372-agent-win2012
     debug-kit: true
-    hostname: pe-371-agent-win2012
+    hostname: pe-372-agent-win2012
     box: windows-2012r2-x64-virtualbox-nocm
     roles:
       - windows
@@ -15,7 +15,7 @@ vms:
 
   - name: pe-372-agent-win2008
     debug-kit: true
-    hostname: pe-371-agent-win2008
+    hostname: pe-372-agent-win2008
     box: windows-2008r2-x64-virtualbox-nocm
     roles:
       - windows
