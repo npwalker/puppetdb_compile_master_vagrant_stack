@@ -35,4 +35,22 @@ vms:
     roles:
       - base
 
+  - name: pe-38nightly-master
+    debug-kit: true
+    box: puppetlabs/centos-6.6-64-nocm
+    roles:
+      - pe-forward-console
+      - el-stop-firewall
+      - el-fix-path
+      - 4gb-memory
+      - base
+
+  - name: pe-38nightly-agent
+    debug-kit: true
+    box: puppetlabs/centos-6.6-64-nocm
+    roles:
+      - el-stop-firewall
+      - el-fix-path
+      - base
+
 # vim: set ft=yaml:
