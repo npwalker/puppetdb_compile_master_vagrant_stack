@@ -53,7 +53,7 @@ vms:
       - el-fix-path
       - base
 
-  - name: pe-40nightly-master
+  - name: pe-20152nightly-master
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     roles:
@@ -63,7 +63,7 @@ vms:
       - 4gb-memory
       - base
 
-  - name: pe-40nightly-agent
+  - name: pe-20152nightly-agent
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     roles:
