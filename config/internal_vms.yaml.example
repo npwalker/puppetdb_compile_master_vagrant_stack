@@ -59,6 +59,7 @@ vms:
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - pe-forward-console
+      - pe-memory-tuning2
       - el-stop-firewall
       - el-fix-path
       - 4gb-memory
