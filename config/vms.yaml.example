@@ -1,4 +1,10 @@
 ---
+# Keep the default Vagrant SSH key. It's publicly available and thus
+# "insecure", but these VMs aren't for production use and having a well-known
+# key allows for easy automation and documentation.
+ssh:
+  insert_key: false
+
 vms:
 
   # NOTE: All `box:` declarations in this example point to vagrantcloud.com
@@ -22,7 +28,7 @@ vms:
       - el-fix-path
       - base
 
-  - name: pe-381-master
+  - name: pe-382-master
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     roles:
@@ -33,7 +39,7 @@ vms:
       - 1gb-memory
       - base
 
-  - name: pe-381-agent
+  - name: pe-382-agent
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     roles:
