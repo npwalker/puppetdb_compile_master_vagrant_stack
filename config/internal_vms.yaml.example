@@ -76,6 +76,12 @@ vms:
   - name: pe-20153nightly-master
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
+    # Work-around for PE-11596. A fix has been merged into 2015.2.x, but not
+    # 2015.3.x.
+    provisioners:
+      - type: pe_bootstrap
+        answer_extras:
+          - 'q_puppetmaster_enterpriseconsole_hostname=<%= machine_hostname %>'
     roles:
       - pe-forward-console
       - pe-memory-tuning2
