@@ -43,7 +43,7 @@ vms:
       - pe-memory-tuning
       - el-stop-firewall
       - el-fix-path
-      - 1gb-memory
+      - 2gb-memory
       - base
 
   - name: pe-38nightly-agent
@@ -62,7 +62,7 @@ vms:
       - pe-memory-tuning2
       - el-stop-firewall
       - el-fix-path
-      - 4gb-memory
+      - 2gb-memory
       - base
 
   - name: pe-20152nightly-agent
@@ -87,7 +87,7 @@ vms:
       - pe-memory-tuning2
       - el-stop-firewall
       - el-fix-path
-      - 4gb-memory
+      - 2gb-memory
       - base
 
   - name: pe-20153nightly-agent
