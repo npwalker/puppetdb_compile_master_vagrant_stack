@@ -85,8 +85,15 @@ vms:
       - base
 
   - name: pe-20153nightly-agent
-    debug-kit: true
+    hostname: pe-20153nightly-agent.puppetdebug.vlan
     box: puppetlabs/centos-6.6-64-nocm
+    # PE 2015.3 no longer supports agent-only installation from tarballs. So,
+    # we use the time honored technique of writing a bash one-liner to execute
+    # a simplified agent install.
+    provisioners:
+      - type: shell
+        inline: |
+          test -f /opt/puppetlabs/puppet/VERSION || curl -k https://pe-20153nightly-master.puppetdebug.vlan:8140/packages/current/install.bash | bash
     roles:
       - el-stop-firewall
       - el-fix-path
