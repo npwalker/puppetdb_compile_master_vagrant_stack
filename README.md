@@ -1,3 +1,22 @@
+# How To Spin Up a Burnside Green Build
+
+With 5 minutes of setup and however long it takes to download the PE installer you can be running a burnside build on your laptop.
+
+1. `cd` into a directory you want to clone this repo into
+2. git clone https://github.com/npwalker/puppet-debugging-kit.git burnside_testing
+3. cd burnside_testing
+4. rake setup:sandboxed
+5. bundle exec vagrant up master201610-centos
+6. bundle exec vagrant ssh master201610-centos
+
+This will go out to http://getpe.delivery.puppetlabs.net/ and find out what the latest green build of burnside is then download it and install it.
+
+If you want to get the newest green build at anytime just destroy and recreate the vm.
+
+ - `vagrant destroy -f master201610-centos; vagrant up master201610-centos; vagrant ssh master201610-centos;`
+
+Background: This is the vagrant setup I use everyday and I've been testing burnside builds for weeks using this method. So, if you try it out and have any questions just let me know.
+
 # Puppet Debugging Kit
 _The only good bug is a dead bug._
 

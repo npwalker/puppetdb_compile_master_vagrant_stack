@@ -1,0 +1,7 @@
+---
+pe_build:
+#  version: "2016.2.0"
+  download_root: "http://pe-releases.puppetlabs.lan/:version"
+#  download_root: "http://enterprise.delivery.puppetlabs.net/3.3/ci-ready"
+#  download_root: "https://s3.amazonaws.com/pe-builds/released/:version"
+

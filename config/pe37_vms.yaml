@@ -1,0 +1,31 @@
+---
+vms:
+#  - name: "master372-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "hosts", "1gb-memory", "master372", "customize_pe_via_hiera", "centos" ]
+
+#  - name: "agent372-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "posix_agent", "agent_372", "centos" ]
+
+#  - name: "agent372-server2008r2"
+#    box: "windows-server-2008-r2-x64-v2"
+#    roles: [ "windows_agent_372", "windows_base", "hosts" ]
+
+#  - name: "master371-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "hosts", "1gb-memory", "master371", "customize_pe_via_hiera", "centos" ]
+
+#  - name: "agent371-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "posix_agent", "agent_371", "centos" ]
+
+#  - name: "master370-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "hosts", "1gb-memory", "master370", "customize_pe_via_hiera", "centos" ]
+
+#  - name: "agent370-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "posix_agent", "agent_370", "centos" ]
+
+

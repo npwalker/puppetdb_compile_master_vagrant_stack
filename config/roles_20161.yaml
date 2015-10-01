@@ -1,0 +1,25 @@
+---
+roles:
+  master201611:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2016.1.1'
+
+  agent_201611:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2016.1.1'
+        master: 'master201611-centos'
+
+  master201612:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2016.1.2'
+
+  agent_201612:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2016.1.2'
+        master: 'master201612-centos'

@@ -1,0 +1,265 @@
+---
+vms:
+  - name: "master300-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master300", "centos" ]
+    private_networks:
+      - ip: '10.0.30.12' 
+
+#  - name: "master300-ubuntu-12-04"
+#    box:  "ubuntu-server-12042-x64-vbox4210-nocm"
+#    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master300" ]
+
+  - name: "agent300-centos"
+    box: "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_300", "centos" ]
+
+  - name: "master301-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master301", "centos" ]
+    private_networks:
+      - ip: '10.0.30.2' 
+
+  - name: "agent301-centos"
+    box: "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_301", "centos" ]
+
+  - name: "master310-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master310", "centos" ]
+    private_networks:
+      - ip: '10.0.30.3' 
+ 
+  - name: "master310-ubuntu1204"
+    box:  "ubuntu-server-12042-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master310" ]
+
+  - name: "agent310-centos"
+    box: "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_310", "centos" ]
+
+  - name: "agent310-centos65"
+    box: "centos-65-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_310", "centos" ]
+
+  - name: "master311-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master311", "centos" ]
+    private_networks:
+      - ip: '10.0.30.4' 
+
+  - name: "agent311-centos"
+    box: "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_311", "centos" ]
+
+  - name: "master312-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master312", "centos" ]
+    private_networks:
+      - ip: '10.0.30.5' 
+
+  - name: "agent312-centos"
+    box: "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_312", "centos" ]
+
+  - name: "master313-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master313", "centos" ]
+    private_networks:
+      - ip: '10.0.30.6' 
+
+  - name: "agent313-centos"
+    box: "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_313", "centos" ]
+
+  - name: "agent313-centos-2"
+    box: "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_313", "centos" ]
+
+  - name: "master320-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master320", "centos" ]
+    private_networks:
+      - ip: '10.0.30.7' 
+
+  - name: "agent320-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_320", "centos" ]
+
+  - name: "master321-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master321", "centos" ]
+    private_networks:
+      - ip: '10.0.30.8' 
+
+  - name: "master321-centos-65"
+    box:  "centos-65-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master321", "centos" ]
+
+  - name: "agent321-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_321", "centos" ]
+
+  - name: "master321-ubuntu-12-04"
+    box:  "ubuntu-server-12042-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master321" ]
+
+  - name: "master322-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master322", "centos" ]
+    private_networks:
+      - ip: '10.0.30.9' 
+
+  - name: "agent322-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_322", "centos" ]
+
+  - name: "master323-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master323", "centos"]
+    private_networks:
+      - ip: '10.0.30.10' 
+
+  - name: "agent323-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_323", "centos" ]
+
+  - name: "master330-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master330", "centos" ]
+    private_networks:
+      - ip: '10.0.30.11' 
+
+  - name: "agent330-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_330", "centos" ]
+
+  - name: "master330-ubuntu1404"
+    box:  "puppetlabs/ubuntu-14.04-64-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master330" ] 
+
+  - name: "master330-ubuntu1204"
+    box:  "puppetlabs/ubuntu-12.04-64-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master330" ] 
+
+  - name: "master331-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master331", "centos" ]
+    private_networks:
+      - ip: '10.0.30.14' 
+
+  - name: "agent331-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_331", "centos" ]
+
+  - name: "agent332-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_332", "centos" ]
+
+  - name: "master323-ubuntu1204"
+    box:  "ubuntu-server-12042-x64-vbox4210-nocm"
+    roles: [ "hosts", "1gb-memory", "customize_pe_via_hiera", "master323" ]
+
+  - name: "master283-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "2gb-memory", "master283", "centos", "auto_net" ]
+
+  - name: "master284-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "2gb-memory", "master284", "centos", "auto_net" ]
+
+#  - name: "master285-centos"
+#    box:  "centos-64-x64-vbox4210-nocm"
+#    roles: [ "hosts", "2gb-memory", "centos" ]
+
+  - name: "agent283-centos"
+    box: "centos-64-x64-vbox4210-nocm"
+    roles: [ "posix_agent", "agent_283", "centos" ]
+
+#  - name: "master260-centos"
+#    box:  "centos-64-x64-vbox4210-nocm"
+#    roles: [ "hosts", "2gb-memory", "master260", "centos" ]
+
+#  - name: "master270-centos"
+#    box:  "centos-64-x64-vbox4210-nocm"
+#    roles: [ "hosts", "2gb-memory", "master270", "centos" ]
+
+#  - name: "master271-centos"
+#    box:  "centos-64-x64-vbox4210-nocm"
+#    roles: [ "hosts", "2gb-memory", "master271", "centos" ]
+
+  - name: "master272-centos"
+    box:  "centos-64-x64-vbox4210-nocm"
+    roles: [ "hosts", "2gb-memory", "master272", "centos" ]
+
+#  - name: "master203-centos"
+#    box:  "centos-64-x64-vbox4210-nocm"
+#    roles: [ "hosts", "2gb-memory", "master203", "centos" ]
+
+#  - name: "manual-centos-63"
+#    box:  "centos-63-x64-vbox4210-nocm"
+#    roles: [ "hosts", "2gb-memory", "centos" ]
+
+#  - name: "agent-centos59a"
+#    box: "centos-59-x64-vbox4210-nocm"
+#    roles: [ "posix_agent_300" ]
+
+#  - name: "agent-centos64b"
+#    box: "centos-64-x64-vbox4210-nocm"
+#    roles: [ "posix_agent_300" ]
+
+#  - name: "agent-debian607a"
+#    box: "debian-607-x64-vbox4210-nocm"
+#    roles: [ "posix_agent_300" ]
+
+#  - name: "agent-ubuntu1204a"
+#    box: "ubuntu-server-12042-x64-vbox4210-nocm"
+#    roles: [ "posix_agent_300" ]
+
+# The remainder of these boxes use commercial platforms for which this project
+# does not distribute boxfiles. They can be enabled by defining an appropriate
+# box in the boxes.yaml file, and then uncommenting out these blocks below.
+
+#  - name: "agent-sles11a"
+#    box: "sles-11sp1-x64-vbox4210-nocm-saleseng-4"
+#    roles: [ "posix_agent", "agent_283_ubuntu_master" ]
+
+#  - name: "agent301-sles11a"
+#    box: "sles-11sp1-x64-vbox4210-nocm-saleseng-4"
+#    roles: [ "posix_agent", "agent_301" ]
+
+#  - name: "agent313-sles11a"
+#    box: "sles-11sp1-x64-vbox4210-nocm-saleseng-4"
+#    roles: [ "posix_agent", "agent_313" ]
+
+  - name: "agent323-solaris10"
+    box: 'solaris-10u9-x64'
+    roles: [ "agent_323", "posix_agent" ]
+
+#  - name: "agent320-solaris10"
+#    box: 'solaris-10u9-x64'
+#    roles: [ "agent_320", "posix_agent" ]
+
+  - name: "agent331-solaris10"
+    box: 'solaris-10u9-x64'
+    roles: [ "agent_331", "posix_agent" ]
+
+  - name: "agent331-solaris11"
+    box: solaris-11.2-i386-virtualbox-nocm
+    roles: [ "agent_331", "posix_agent" ]
+
+#  - name: "agent313-server2008r2"
+#    box: "windows-server-2008-r2-x64-v2"
+#    roles: [ "windows_agent_313", "windows_base", "hosts" ]
+#
+#  - name: "agent320-server2008r2"
+#    box: "windows-server-2008-r2-x64-v2"
+#    roles: [ "windows_agent_320", "windows_base", "hosts" ]
+
+  - name: "agent323-server2008r2"
+    box: "windows-server-2008-r2-x64-v2"
+    roles: [ "windows_agent_323", "windows_base", "hosts" ]
+
+  - name: "agent332-server2008r2"
+    box: "windows-server-2008-r2-x64-v2"
+    roles: [ "windows_agent_332", "windows_base" ]

@@ -1,0 +1,537 @@
+---
+roles:
+  auto_net:
+    private_networks:
+      - ip: '0.0.0.0'
+        auto_network: true
+
+  hosts:
+    provisioners:
+      - {type: hosts}
+      - type: shell
+        inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
+
+  2-cpus:
+    providers:
+      - type: virtualbox
+        customize:
+        - [modifyvm, !ruby/sym id, '--cpus', 2]
+        - [modifyvm, !ruby/sym id, '--ioapic', 'on']
+
+  3-cpus:
+    providers:
+      - type: virtualbox
+        customize:
+        - [modifyvm, !ruby/sym id, '--cpus', 3]
+        - [modifyvm, !ruby/sym id, '--ioapic', 'on']
+
+  4-cpus:
+    providers:
+      - type: virtualbox
+        customize:
+        - [modifyvm, !ruby/sym id, '--cpus', 4]
+        - [modifyvm, !ruby/sym id, '--ioapic', 'on']
+
+  kvm-paravirt:
+    providers:
+      - type: virtualbox
+        customize:
+        - [modifyvm, !ruby/sym id, '--paravirtprovider', 'kvm']
+
+  master:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+
+  pe-green-master:
+    provisioners:
+      - type: pe_bootstrap
+        download_root: "http://enterprise.delivery.puppetlabs.net/3.7/ci-ready"
+        version: '3.7.3'
+        role: :master
+
+  master203:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2.0.3'
+
+  master260:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2.6.0'
+
+  master270:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2.7.0'
+
+  master271:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2.7.1'
+
+  master272:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2.7.2'
+
+  master283:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2.8.3'
+
+  master284:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2.8.4'
+
+  master285:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2.8.5'
+
+  master288:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2.8.8'
+
+  master300:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.0.0'
+
+  master301:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.0.1'
+
+  master310:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.1.0'
+
+  master311:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.1.1'
+
+  master312:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.1.2'
+
+  master313:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.1.3'
+
+  master320:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.2.0'
+
+  master321:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.2.1'
+
+  master322:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.2.2'
+
+  master323:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.2.3'
+
+  master330:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.3.0'
+
+  agent_330:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.3.0'
+        master: 'master330-centos'
+
+  master331:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.3.1'
+
+  agent_331:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.3.1'
+        master: 'master331-centos'
+
+  master332:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.3.2'
+
+  agent_332:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.3.2'
+        master: 'master332-centos'
+
+  master370:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.7.0'
+
+  agent_370:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.7.0'
+        master: 'master370-centos'
+
+  master371:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.7.1'
+
+  agent_371:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.7.1'
+        master: 'master371-centos'
+
+  master372:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.7.2'
+
+  agent_372:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.7.2'
+        master: 'master372-centos'
+
+  master380:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+       # download_root: "http://enterprise.delivery.puppetlabs.net/3.8/ci-ready"
+       # version_file: 'http://getpe.delivery.puppetlabs.net/latest/3.8'
+        version: '3.8.0'
+
+  agent_380:
+    provisioners:
+      - type: pe_bootstrap
+        master: 'master380-centos'
+        #download_root: "http://enterprise.delivery.puppetlabs.net/3.8/ci-ready"
+        #version_file: 'http://getpe.delivery.puppetlabs.net/latest/3.8'
+        version: '3.8.0'
+
+  master381:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.8.1'
+
+  agent_381:
+    provisioners:
+      - type: pe_bootstrap
+        master: 'master381-centos'
+        version: '3.8.1'
+
+  master382:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        download_root: "https://s3.amazonaws.com/pe-builds/released/:version"
+        #version_file: 'http://getpe.delivery.puppetlabs.net/latest/3.8'
+        version: '3.8.2'
+
+  agent_382:
+    provisioners:
+      - type: pe_bootstrap
+        master: 'master382-centos'
+        version: '3.8.2'
+
+  master383:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        #version_file: 'http://getpe.delivery.puppetlabs.net/latest/3.8'
+        version: '3.8.3'
+        answer_extras:
+          - 'q_puppet_cloud_install=n'
+          - 'q_enable_future_parser=n'
+
+  agent_383:
+    provisioners:
+      - type: pe_bootstrap
+        master: 'master383-centos'
+        version: '3.8.3'
+
+  master385:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.8.5'
+        answer_extras:
+          - 'q_puppet_cloud_install=n'
+          - 'q_enable_future_parser=n'
+
+  agent_385:
+    provisioners:
+      - type: pe_bootstrap
+        master: 'master385-centos'
+        version: '3.8.5'
+
+  master384:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '3.8.4'
+        answer_extras:
+          - 'q_puppet_cloud_install=n'
+          - 'q_enable_future_parser=n'
+
+  agent_384:
+    provisioners:
+      - type: pe_bootstrap
+        master: 'master384-centos'
+        version: '3.8.4'
+
+  fix-max-command-size-issue:
+    provisioners:
+      - type: shell
+        inline: 'puppet module install puppetlabs/inifile; puppet apply /vagrant/puppet_code/max-command-size.pp'
+
+  windows_base:
+    communicator: "winrm"
+    forwarded_ports:
+      - { guest: 5985, host: 5986 }
+      - { guest: 3389, host: 3390 }
+
+  windows_agent_311:
+    private_networks:
+      - {ip: '0.0.0.0', auto_network: true}
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.1.1'
+        master: 'master311-centos'
+
+  windows_agent_320:
+    private_networks:
+      - {ip: '0.0.0.0', auto_network: true}
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.2.0'
+        master: 'master320-centos'
+
+  windows_agent_323:
+    private_networks:
+      - {ip: '0.0.0.0', auto_network: true}
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.2.3'
+        master: 'master323-centos'
+
+  windows_agent_332:
+    private_networks:
+      - {ip: '0.0.0.0', auto_network: true}
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.3.2'
+        master: 'master332-centos'
+
+  windows_agent_372:
+    private_networks:
+      - {ip: '0.0.0.0', auto_network: true}
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.7.2'
+        master: 'master372-centos'
+        #filename: 'puppet-enterprise-3.7.2-x64.msi'
+
+  windows_agent_380:
+    private_networks:
+      - {ip: '0.0.0.0', auto_network: true}
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.8.0'
+        master: 'master380-centos'
+
+  windows_agent_382:
+    private_networks:
+      - {ip: '0.0.0.0', auto_network: true}
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.8.2'
+        master: 'master382-centos'
+
+  windows_agent_201531:
+    private_networks:
+      - {ip: '0.0.0.0', auto_network: true}
+    provisioners:
+      - type: pe_agent
+        version: '2015.3.1'
+        #download_root: "https://s3.amazonaws.com/pe-builds/released/:version"
+        master_vm: 'master201531-centos'
+
+  agent_283:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2.8.3'
+        master: 'master283-centos'
+
+  agent_283_ubuntu_master:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2.8.3'
+        master: 'master321-ubuntu-12-04'
+
+  agent_284:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2.8.4'
+        master: 'master284-centos'
+
+  agent_285:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2.8.5'
+        master: 'master285-centos'
+
+  agent_286:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2.8.6'
+        master: 'master286-centos'
+
+  agent_300:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.0.0'
+        master: 'master300-centos'
+
+  agent_301:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.0.1'
+        master: 'master301-centos'
+
+  agent_310:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.1.0'
+        master: 'master310-centos'
+
+  agent_311:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.1.1'
+        master: 'master311-centos'
+
+  agent_312:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.1.2'
+        master: 'master312-centos'
+
+  agent_313:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.1.3'
+        master: 'master313-centos'
+
+  agent_320:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.2.0'
+        master: 'master320-centos'
+
+  agent_321:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.2.1'
+        master: 'master321-centos'
+
+  agent_321_ubuntu_master:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.2.1'
+        master: 'master321-ubuntu-12-04'
+
+  agent_322:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.2.2'
+        master: 'master322-centos'
+
+  agent_323:
+    provisioners:
+      - type: pe_bootstrap
+        version: '3.2.3'
+        master: 'master323-centos'
+
+  no_pe:
+    provisioners:
+      - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"}
+      - {type: hosts}
+
+  centos:
+    provisioners:
+      - type: shell
+        inline: 'service iptables stop; chkconfig iptables off;'
+      - type: shell
+        inline: '/usr/bin/yum install telnet -y'
+      - type: shell
+        inline: '/usr/bin/yum install tree -y'
+
+  centos7:
+    provisioners:
+      - type: shell
+        inline: '/usr/bin/yum install telnet -y'
+      - type: shell
+        inline: '/usr/bin/yum install vim -y'
+      - type: shell
+        inline: '/usr/bin/yum install tree -y'
+      - type: shell
+        inline: 'systemctl stop firewalld.service; systemctl disable firewalld.service'
+
+  customize_pe_via_hiera:
+    provisioners:
+#      - type: shell
+#        inline: 'mkdir -p /etc/puppetlabs/code/environments/production/hieradata; cp /vagrant/config/hierafiles/defaults.yaml /etc/puppetlabs/code/environments/production/hieradata/common.yaml'
+      - type: shell
+        inline: 'mkdir -p /var/lib/hiera; cp /vagrant/config/hierafiles/defaults.yaml /var/lib/hiera/defaults.yaml'
+
+  customize_pe_via_hiera_2015:
+    provisioners:
+      - type: shell
+        inline: 'mkdir -p /etc/puppetlabs/code/environments/production/hieradata; cp /vagrant/config/hierafiles/defaults.yaml /etc/puppetlabs/code/environments/production/hieradata/common.yaml'
+      - type: shell
+        inline: 'mkdir -p /var/lib/hiera; cp /vagrant/config/hierafiles/defaults.yaml /var/lib/hiera/defaults.yaml'

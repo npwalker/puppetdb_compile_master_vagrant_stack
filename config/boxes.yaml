@@ -1,0 +1,26 @@
+---
+# Boxes from http://puppet-vagrant-boxes.puppetlabs.com/
+# Updated: 2013-08-08
+boxes:
+  'fedora-18-x64-vbox4210-nocm': 'http://puppet-vagrant-boxes.puppetlabs.com/fedora-18-x64-vbox4210-nocm.box'
+  'centos-65-x64-vbox4210-nocm': 'http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-nocm.box'
+  'centos-64-x64-vbox4210-nocm': 'http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box'
+  'centos-59-x64-vbox4210-nocm': 'http://puppet-vagrant-boxes.puppetlabs.com/centos-59-x64-vbox4210-nocm.box'
+  'debian-607-x64-vbox4210-nocm': 'http://puppet-vagrant-boxes.puppetlabs.com/debian-607-x64-vbox4210-nocm.box'
+  'debian-70rc1-x64-vbox4210-nocm': 'http://puppet-vagrant-boxes.puppetlabs.com/debian-70rc1-x64-vbox4210-nocm.box'
+  'ubuntu-server-10044-x64-vbox4210-nocm': 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-10044-x64-vbox4210-nocm.box'
+  'ubuntu-server-12042-x64-vbox4210-nocm': 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210-nocm.box'
+  'centos-63-x64-vbox4210-nocm': 'https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box'
+
+  # The boxfiles below are used by optional virtual machines commented out in
+  # the vms.yaml file. If you provide an appropriate boxfile for a platform
+  # below, it can be un-commented in the vms.yaml file and used by Vagrant.
+
+  'sles-11sp1-x64-vbox4210-nocm-saleseng-4': 'https://s3.amazonaws.com/saleseng/boxfiles/sles-11sp1-x64-vbox4210-nocm-saleseng-4.box'
+
+  'solaris-10u9-x64': 'https://saleseng.s3.amazonaws.com/boxfiles/solaris10u9_64.box'
+  'solaris-10u11-i386': 'http://int-resources.ops.puppetlabs.net/vagrant/puppetless_boxes/solaris-10u11-i386-virtualbox-nocm.box'
+  'solaris-11-nocm':  'http://int-resources.ops.puppetlabs.net/vagrant/solaris11-nocm.box'
+
+  'windows-server-2008-r2-x64-v2': 'https://s3.amazonaws.com:443/saleseng/boxfiles%2Fwindows-server-2008-r2-x64-v2.box?AWSAccessKeyId=AKIAIMKG3SGQ45X34PMQ&Signature=fFOB%2BogVICm2VYG9uiUo0PKmpF0%3D&Expires=1540272319'
+

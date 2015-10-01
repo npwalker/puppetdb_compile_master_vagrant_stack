@@ -1,0 +1,51 @@
+---
+roles:
+  master20153:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2015.3.0'
+        #download_root: "http://enterprise.delivery.puppetlabs.net/2015.3/ci-ready"
+        #version_file: 'http://getpe.delivery.puppetlabs.net/latest/2015.3'
+
+  agent_20153:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2015.3.0'
+        master: 'master20153-centos'
+
+  master201531:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2015.3.1'
+
+  agent_201531:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2015.3.1'
+        master: 'master201531-centos'
+
+  master201532:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2015.3.2'
+
+  agent_201532:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2015.3.2'
+        master: 'master201532-centos'
+
+  master201533:
+    provisioners:
+      - type: pe_bootstrap
+        role: :master
+        version: '2015.3.3'
+
+  agent_201533:
+    provisioners:
+      - type: pe_bootstrap
+        version: '2015.3.3'
+        master: 'master201533-centos'
