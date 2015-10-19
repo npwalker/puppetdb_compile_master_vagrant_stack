@@ -1,4 +1,3 @@
 ---
 pe_build:
-  version: 2015.2.1
   download_root: 'https://pm.puppetlabs.com/puppet-enterprise/:version'
