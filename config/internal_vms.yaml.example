@@ -54,7 +54,7 @@ vms:
       - el-fix-path
       - base
 
-  - name: pe-20152nightly-master
+  - name: pe-20161nightly-master
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     roles:
@@ -65,26 +65,7 @@ vms:
       - 2gb-memory
       - base
 
-  - name: pe-20152nightly-agent
-    debug-kit: true
-    box: puppetlabs/centos-6.6-64-nocm
-    roles:
-      - el-stop-firewall
-      - el-fix-path
-      - base
-
-  - name: pe-20153nightly-master
-    debug-kit: true
-    box: puppetlabs/centos-6.6-64-nocm
-    roles:
-      - pe-forward-console
-      - pe-memory-tuning2
-      - el-stop-firewall
-      - el-fix-path
-      - 2gb-memory
-      - base
-
-  - name: pe-20153nightly-agent
+  - name: pe-20161nightly-agent
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     roles:
