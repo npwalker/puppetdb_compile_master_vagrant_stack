@@ -4,18 +4,18 @@ vms:
   # NOTE: All `box:` declarations in this example point to
   # int-resources.puppetlabs.net and require VPN acces to download.
 
-  - name: pe-383-agent-win2012
+  - name: pe-201532-agent-win2012
     debug-kit: true
-    hostname: pe-383-agent-win2012
+    hostname: pe-201532-agent-win2012
     box: windows-2012r2-x64-virtualbox-nocm
     roles:
       - windows
       - 2gb-memory
       - base
 
-  - name: pe-383-agent-win2008
+  - name: pe-201532-agent-win2008
     debug-kit: true
-    hostname: pe-383-agent-win2008
+    hostname: pe-201532-agent-win2008
     box: windows-2008r2-x64-virtualbox-nocm
     roles:
       - windows
@@ -23,13 +23,13 @@ vms:
       - base
 
 
-  - name: pe-383-agent-solaris10
+  - name: pe-201532-agent-solaris10
     box: solaris-10u11-i386-virtualbox-nocm
     debug-kit: true
     roles:
       - base
 
-  - name: pe-383-agent-solaris11
+  - name: pe-201532-agent-solaris11
     box: solaris-11.2-i386-virtualbox-nocm
     debug-kit: true
     roles:
