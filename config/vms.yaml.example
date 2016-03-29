@@ -9,7 +9,7 @@ vms:
 
   # NOTE: All `box:` declarations in this example point to vagrantcloud.com
   # and require Vagrant 1.5.0 or newer to function.
-  - name: pe-201532-master
+  - name: pe-201533-master
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     roles:
@@ -20,7 +20,7 @@ vms:
       - 2gb-memory
       - base
 
-  - name: pe-201532-agent
+  - name: pe-201533-agent
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     roles:
@@ -63,16 +63,6 @@ vms:
     roles:
       - el-stop-firewall
       - el-fix-path
-      - base
-
-
-  - name: poss-head-master
-    box: puppetlabs/centos-6.6-64-nocm
-    hostname: poss-head-centos.puppetdebug.vlan
-    roles:
-      - poss-envpuppet
-      - el-6-ruby193
-      - el-stop-firewall
       - base
 
 # vim: set ft=yaml:
