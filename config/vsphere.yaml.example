@@ -1,0 +1,83 @@
+---
+roles:
+  base:
+    providers:
+      - type: vsphere
+
+        host: '<%= ENV["VCENTER_SERVER"] %>'
+        insecure: <%= ENV["VCENTER_SSL"] %>
+        user: '<%= ENV["VCENTER_USER"] %>'
+        password: '<%= ENV["VCENTER_PASSWORD"] %>'
+
+        data_center_name: 'opdx5'
+        compute_resource_name: 'general'
+        vm_base_path: 'supteam/<%= (ENV["VCENTER_USER"] || "").split("@").first %>'
+        linked_clone: true
+
+        template_name: 'templates/redhat-6-x86_64'
+
+        overrides:
+          ssh:
+            username: root
+            private_key_path: '~/.ssh/id_rsa-acceptance'
+          pe_build:
+            shared_installer: false
+            download_root: http://pe-releases.puppetlabs.lan/:version
+          vm_defaults:
+            # A simple box for vsphere that provides no configuration.
+            # TODO: Replace this with boxes owned by the puppetlabs org that
+            # point to vsphere templates.
+            box: 'sharpie/dummy'
+            synced_folders:
+              - type: rsync
+                host_path: '.'
+                guest_path: '/vagrant'
+                # Large working directories? Add em' here.
+                rsync__exclude:
+                  - .vagrant
+                  - .bundle
+                  - .pe_build
+            provisioners:
+              - type: hosts
+                name: 'base networking'
+                preserve_order: true
+                sync_hosts: true
+                add_localhost_hostnames: false
+                hosts:
+                  - ['@vagrant_ssh', ['@vagrant_hostnames']]
+                imports: ['global']
+                exports:
+                  global:
+                    - ['@vagrant_ssh', ['@vagrant_hostnames']]
+
+  windows:
+    providers:
+      - type: vsphere
+        overrides:
+          winrm:
+            username: Administrator
+            password: 'Qu@lity!'
+          vm_defaults:
+            synced_folders:
+              - host_path: '.'
+                guest_path: '/vagrant'
+                # Windows gets very confused when trying to find RSync.
+                disabled: true
+
+  1gb-memory:
+    providers:
+      - type: vsphere
+        memory_mb: 1024
+
+  2gb-memory:
+    providers:
+      - type: vsphere
+        memory_mb: 2048
+
+  4gb-memory:
+    providers:
+      - type: vsphere
+        memory_mb: 4096
+
+
+# vim: set ft=yaml:
