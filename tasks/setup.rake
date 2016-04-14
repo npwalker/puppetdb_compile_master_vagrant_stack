@@ -2,7 +2,12 @@
 namespace :setup do
   desc 'Install requirements into a global Vagrant setup'
   task :global do
-    %w[oscar vagrant-vsphere vagrant-norequiretty].each do |plugin|
+    %w[
+      oscar
+      vagrant-vsphere
+      vagrant-openstack-provider
+      vagrant-norequiretty
+    ].each do |plugin|
       Kernel.system 'vagrant', 'plugin', 'install', plugin
     end
   end

@@ -1,0 +1,119 @@
+---
+# Configuration for vagrant-openstack-provider
+roles:
+  base:
+    providers:
+      - type: openstack
+
+        openstack_auth_url: '<%= ENV["OS_AUTH_URL"] %>'
+        username: '<%= ENV["OS_USERNAME"] %>'
+        password: '<%= ENV["OS_PASSWORD"] %>'
+
+        tenant_name: '<%= ENV["OS_TENANT_NAME"] %>'
+        floating_ip_pool: 'ext-net-pdx1-opdx1'
+
+        # This is a file in the top-level directory that lists which
+        # directories to exclude from sync.
+        rsync_ignore_files:
+          - rsync_ignore
+
+        image: centos_6_x86_64
+        flavor: g1.small
+
+        # NOTE: Change these to appropriate values for your OpenStack
+        # environment. If using your own SSH keypair instead of the public
+        # Vagrant key, then change private_key_path below.
+        keypair_name: 'vagrant-insecure'
+        networks: ['network0']
+
+        overrides:
+          ssh:
+            private_key_path: '~/.vagrant.d/insecure_private_key'
+            # NOTE: OpenStack _requires_ SSH username to be set, so we use the
+            # default for CentOS. Other systems, like Debian/Ubuntu, may use a
+            # different default user.
+            username: centos
+          pe_build:
+            shared_installer: false
+            download_root: http://pe-releases.puppetlabs.lan/:version
+          vm_defaults:
+            box: 'sharpie/dummy'
+            provisioners:
+              - type: hosts
+                name: 'base networking'
+                preserve_order: true
+                sync_hosts: true
+                add_localhost_hostnames: false
+                hosts:
+                  - ['@facter_ipaddress', ['@vagrant_hostnames']]
+                imports: ['openstack']
+                exports:
+                  openstack:
+                    - ['@facter_ipaddress', ['@vagrant_hostnames']]
+                  global:
+                    - ['@vagrant_ssh', ['@vagrant_hostnames']]
+
+  windows:
+    providers:
+      - type: openstack
+        # OpenStack calls a WaitForServerToBeAccessible action during start up
+        # which forces the use of ssh. The result is that WinRM is ignored and
+        # initial provisioning fails. Disabling SSH avoids that unplesantness,
+        # but means that Windows machines must be provisioned in a separate
+        # step.
+        #
+        # NOTE: Remove when ggiamarchi/vagrant-openstack-provider#281 lands.
+        ssh_disabled: true
+        # Windows don't RSync.
+        sync_method: none
+        user_data: |
+          <powershell>
+          # Set well-known Administrator password
+          #
+          # Standard password of "vagrant" doesn't meed the default Windows
+          # password complexity requirements. Disabling those in PowerShell is
+          # doable, but a bit gross, so we just bend the password to fit.
+          net user Administrator "V@grant!"
+          wmic useraccount where "name='Administrator'" set PasswordExpires=FALSE
+
+          # Enable RDP
+          set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+          netsh advfirewall firewall add rule name="RDP 3389" dir=in localport=3389 protocol=TCP action=allow
+
+          # Enable WinRM
+          winrm quickconfig -q
+          winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="0"}'
+          winrm set winrm/config '@{MaxTimeoutms="7200000"}'
+          winrm set winrm/config/service '@{AllowUnencrypted="true"}'
+          winrm set winrm/config/service/auth '@{Basic="true"}'
+
+          netsh advfirewall firewall add rule name="WinRM 5985" protocol=TCP dir=in localport=5985 action=allow
+
+          net stop winrm
+          sc.exe config winrm start=auto
+          net start winrm
+
+          # turn off PowerShell execution policy restrictions
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine
+          </powershell>
+        overrides:
+          winrm:
+            username: Administrator
+            password: 'V@grant!'
+
+  1gb-memory:
+    providers:
+      - type: openstack
+        flavor: 'g1.small'
+
+  2gb-memory:
+    providers:
+      - type: openstack
+        flavor: 'g1.medium'
+
+  4gb-memory:
+    providers:
+      - type: openstack
+        flavor: 'g1.large'
+
+# vim: set ft=yaml:

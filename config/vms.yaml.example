@@ -15,6 +15,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     roles:
       - pe-forward-console
       - pe-memory-tuning2
@@ -29,6 +31,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     roles:
       - el-stop-firewall
       - el-fix-path
@@ -40,6 +44,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     roles:
       - pe-forward-console
       - pe-memory-tuning
@@ -54,6 +60,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     roles:
       - el-stop-firewall
       - el-fix-path
@@ -64,6 +72,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     box: puppetlabs/centos-6.6-64-nocm
     roles:
       - pe-forward-console
@@ -78,6 +88,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     roles:
       - el-stop-firewall
       - el-fix-path

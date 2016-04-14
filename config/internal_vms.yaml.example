@@ -8,6 +8,11 @@ vms:
     debug-kit: true
     hostname: pe-201611-agent-win2012
     box: windows-2012r2-x64-virtualbox-nocm
+    providers:
+      - type: openstack
+        image: 'windows_2012_r2_std_eval_x86_64'
+        # Image requires more disk space than g1.medium
+        flavor: g1.large
     roles:
       - windows
       - 2gb-memory
@@ -47,6 +52,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     roles:
       - pe-forward-console
       - pe-memory-tuning
@@ -61,6 +68,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     roles:
       - el-stop-firewall
       - el-fix-path
@@ -72,6 +81,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     roles:
       - pe-forward-console
       - pe-memory-tuning2
@@ -86,6 +97,8 @@ vms:
     providers:
       - type: vsphere
         template_name: 'templates/centos-6-x86_64'
+      - type: openstack
+        image: 'centos_6_x86_64'
     roles:
       - el-stop-firewall
       - el-fix-path
