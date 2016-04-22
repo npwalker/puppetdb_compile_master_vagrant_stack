@@ -1,6 +1,11 @@
 ---
 roles:
   base:
+    provisioners:
+      # A generic hosts provisioner is defined here so that networking is one
+      # of the first things configured. Other roles can hook into the
+      # 'base networking' provisioner and override settings.
+      - {type: hosts, name: 'base networking'}
     providers:
       - type: vsphere
 
