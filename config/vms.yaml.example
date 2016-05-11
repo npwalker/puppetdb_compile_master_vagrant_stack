@@ -9,7 +9,7 @@ vms:
 
   # NOTE: All `box:` declarations in this example point to vagrantcloud.com
   # and require Vagrant 1.5.0 or newer to function.
-  - name: pe-201611-master
+  - name: pe-201612-master
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     providers:
@@ -25,7 +25,7 @@ vms:
       - 2gb-memory
       - base
 
-  - name: pe-201611-agent
+  - name: pe-201612-agent
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     providers:
@@ -38,7 +38,7 @@ vms:
       - el-fix-path
       - base
 
-  - name: pe-384-master
+  - name: pe-385-master
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     providers:
@@ -54,35 +54,7 @@ vms:
       - 2gb-memory
       - base
 
-  - name: pe-384-agent
-    debug-kit: true
-    box: puppetlabs/centos-6.6-64-nocm
-    providers:
-      - type: vsphere
-        template_name: 'templates/centos-6-x86_64'
-      - type: openstack
-        image: 'centos_6_x86_64'
-    roles:
-      - el-stop-firewall
-      - el-fix-path
-      - base
-
-  - name: pe-332-master
-    debug-kit: true
-    providers:
-      - type: vsphere
-        template_name: 'templates/centos-6-x86_64'
-      - type: openstack
-        image: 'centos_6_x86_64'
-    box: puppetlabs/centos-6.6-64-nocm
-    roles:
-      - pe-forward-console
-      - el-stop-firewall
-      - el-fix-path
-      - 2gb-memory
-      - base
-
-  - name: pe-332-agent
+  - name: pe-385-agent
     debug-kit: true
     box: puppetlabs/centos-6.6-64-nocm
     providers:
