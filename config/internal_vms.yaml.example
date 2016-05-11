@@ -13,6 +13,8 @@ vms:
         image: 'windows_2012_r2_std_eval_x86_64'
         # Image requires more disk space than g1.medium
         flavor: g1.large
+      - type: vsphere
+        template_name: 'templates/win-2012r2-x86_64'
     roles:
       - windows
       - 2gb-memory
