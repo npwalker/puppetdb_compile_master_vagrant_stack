@@ -61,14 +61,6 @@ roles:
   windows:
     providers:
       - type: openstack
-        # OpenStack calls a WaitForServerToBeAccessible action during start up
-        # which forces the use of ssh. The result is that WinRM is ignored and
-        # initial provisioning fails. Disabling SSH avoids that unplesantness,
-        # but means that Windows machines must be provisioned in a separate
-        # step.
-        #
-        # NOTE: Remove when ggiamarchi/vagrant-openstack-provider#281 lands.
-        ssh_disabled: true
         # Windows don't RSync.
         sync_method: none
         user_data: |

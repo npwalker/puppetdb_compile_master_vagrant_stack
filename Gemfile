@@ -12,6 +12,6 @@ gem 'vagrant', :github => 'mitchellh/vagrant', :tag => 'v1.8.4'
 group :plugins do
   gem 'oscar', '>= 0.5'
   gem 'vagrant-vsphere', '>= 1.7.0'
-  gem 'vagrant-openstack-provider', '>= 0.7.1'
+  gem 'vagrant-openstack-provider', '>= 0.7.2'
   gem 'vagrant-norequiretty'
 end
