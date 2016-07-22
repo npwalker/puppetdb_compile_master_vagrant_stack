@@ -1,5 +1,9 @@
 ---
 vms:
+#  - name: "master-no-pe-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "2gb-memory", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
   - name: "master201620-centos"
     box:  "puppetlabs/centos-6.6-64-nocm"
     roles: [ "4-cpus", "2gb-memory", "master201620", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
