@@ -1,21 +1,13 @@
-# How To Spin Up a Burnside Green Build
+# Testing PuppetDB on compile masters
 
-With 5 minutes of setup and however long it takes to download the PE installer you can be running a burnside build on your laptop.
+The setup is handled by the vagrant stack but here are the details 
 
-1. `cd` into a directory you want to clone this repo into
-2. git clone https://github.com/npwalker/puppet-debugging-kit.git burnside_testing
-3. cd burnside_testing
-4. rake setup:sandboxed
-5. bundle exec vagrant up master201610-centos
-6. bundle exec vagrant ssh master201610-centos
+1.  Add `puppet_enterprise::profile::puppetdb' to your compile master 
+2.  Set `puppet_enterprise::profile::master::puppetdb_host` to $clientcert 
+  - This causes the compile masters to connect to the puppetdb_host that is local to it I suppose it also makes the MoM connect to it's puppetdb but it was already doing that.  
+  - You could provide a comma delimited list of $clientcert and the fqdn of your MoM if you wanted the master to fail over to the MoM when it can't connect to the local puppetdb
+    - I recommend that if the local puppetdb on the compile master stops working that you instead remove the compile master from your load balancer instead of failing over just puppetdb traffic.  
 
-This will go out to http://getpe.delivery.puppetlabs.net/ and find out what the latest green build of burnside is then download it and install it.
-
-If you want to get the newest green build at anytime just destroy and recreate the vm.
-
- - `vagrant destroy -f master201610-centos; vagrant up master201610-centos; vagrant ssh master201610-centos;`
-
-Background: This is the vagrant setup I use everyday and I've been testing burnside builds for weeks using this method. So, if you try it out and have any questions just let me know.
 
 # Puppet Debugging Kit
 _The only good bug is a dead bug._

@@ -1,0 +1,8 @@
+---
+roles:
+  compile_master_puppetdb_node_group:
+    provisioners:
+      - type: shell
+        inline: "puppet apply /vagrant/puppet_code/create_compile_master_pdb_node_group.pp --modulepath /opt/puppetlabs/server/data/enterprise/modules/"
+
+
