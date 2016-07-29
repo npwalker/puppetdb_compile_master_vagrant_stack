@@ -2,7 +2,7 @@
     parent  => 'PE Infrastructure',
     pinned  => ['compile-master-puppetdb'],
     classes => {
-      'puppet_enterprise::profile::master' => { 'puppetdb_host' => "${::clientcert}" },
+      'puppet_enterprise::profile::master' => { 'puppetdb_host' => '${fqdn}', 'puppetdb_port' => '8081' },
       'puppet_enterprise::profile::master::mcollective' => {},
       'puppet_enterprise::profile::mcollective::peadmin' => {},
       'puppet_enterprise::profile::puppetdb' => {},
