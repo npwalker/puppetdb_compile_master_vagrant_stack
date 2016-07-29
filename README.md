@@ -1,12 +1,29 @@
 # Testing PuppetDB on compile masters
 
-The setup is handled by the vagrant stack but here are the details 
+## To Start the stack
 
-1.  Add `puppet_enterprise::profile::puppetdb' to your compile master 
-2.  Set `puppet_enterprise::profile::master::puppetdb_host` to $clientcert 
+```
+vagrant destroy -f
+vagrant up
+vagrant ssh master201621-centos -c "sudo puppet agent -t"
+```
+
+## To Confirm you can run an agent agasint the compile master with PuppetDB
+
+```
+vagrant ssh compile-master-puppetdb -c "sudo puppet agent -t --server compile-master-puppetdb --certname test"
+
+```
+
+The setup is handled by the vagrant stack but here are the details
+
+1.  Add `puppet_enterprise::profile::puppetdb' to your compile master
+2.  Configure puppetdb.conf on the compile master to connect to the local puppetdb
   - This causes the compile masters to connect to the puppetdb_host that is local to it I suppose it also makes the MoM connect to it's puppetdb but it was already doing that.  
   - You could provide a comma delimited list of $clientcert and the fqdn of your MoM if you wanted the master to fail over to the MoM when it can't connect to the local puppetdb
     - I recommend that if the local puppetdb on the compile master stops working that you instead remove the compile master from your load balancer instead of failing over just puppetdb traffic.  
+
+The setup used by the stack is somewhat fragile and likely to break in future versions of PE.  However, the basic idea that you can run puppetdb on a compile master is proved and it's not complicated.
 
 
 # Puppet Debugging Kit
