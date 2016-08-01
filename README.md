@@ -8,7 +8,7 @@ vagrant up
 vagrant ssh master201621-centos -c "sudo puppet agent -t"
 ```
 
-## To Confirm you can run an agent agasint the compile master with PuppetDB
+## To Confirm you can run an agent against the compile master with PuppetDB
 
 ```
 vagrant ssh compile-master-puppetdb -c "sudo puppet agent -t --server compile-master-puppetdb --certname test"
