@@ -1,4 +1,19 @@
 ---
+
+#to work around a bug
+pe_install::puppetdb_certname: "%{::clientcert}"
+
+#have to the certnames instead of only dynamically using ::clientcert
+#include clientcert at the beginning to make sure local puppetdb is used
+#before a central one
+puppet_enterprise::puppetdb_host:
+ - 'master201621-centos'
+ - 'compile-master-puppetdb'
+puppet_enterprise::puppetdb_port:
+ - '8081'
+ - '8081'
+
+
 #Drop puppetdb Java Heap Size
 #PE3.2 and above
 pe_puppetdb::pe::java_args:

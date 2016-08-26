@@ -1,3 +1,13 @@
+# Testing PuppetDB on compile masters
+
+The setup is handled by the vagrant stack but here are the details 
+
+1.  Add `puppet_enterprise::profile::puppetdb' to your compile master 
+2.  Set `puppet_enterprise::profile::master::puppetdb_host` to $clientcert 
+  - This causes the compile masters to connect to the puppetdb_host that is local to it I suppose it also makes the MoM connect to it's puppetdb but it was already doing that.  
+  - You could provide a comma delimited list of $clientcert and the fqdn of your MoM if you wanted the master to fail over to the MoM when it can't connect to the local puppetdb
+    - I recommend that if the local puppetdb on the compile master stops working that you instead remove the compile master from your load balancer instead of failing over just puppetdb traffic.  
+
 # Puppet Debugging Kit
 _The only good bug is a dead bug._
 
