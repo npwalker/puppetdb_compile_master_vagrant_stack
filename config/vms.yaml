@@ -1,0 +1,177 @@
+---
+vms:
+#  - name: "master-no-pe-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "2gb-memory", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+  - name: "master201620-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "2gb-memory", "master201620", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+  - name: "master201612-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "2gb-memory", "master201612", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+  - name: "master201611-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "2gb-memory", "master201611", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+  - name: "master201533-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "2gb-memory", "master201533", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+  - name: "master201532-ubuntu1404"
+    box:  "puppetlabs/ubuntu-14.04-64-nocm"
+    roles: [ "4-cpus", "2gb-memory", "master201532", "customize_pe_via_hiera_2015", "hosts" , "auto_net" ]
+
+  - name: "master201532-ubuntu1204"
+    box:  "puppetlabs/ubuntu-12.04-64-nocm"
+    roles: [ "4-cpus", "2gb-memory", "master201532", "customize_pe_via_hiera_2015", "hosts" , "auto_net" ]
+
+  - name: "master201532-centos7"
+    box:  "puppetlabs/centos-7.0-64-nocm"
+    roles: [ "4-cpus", "1gb-memory", "master201532", "customize_pe_via_hiera_2015", "centos7", "hosts" , "auto_net" ]
+
+  - name: "agent201532-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "agent_201532", "centos", "hosts" , "auto_net" ]
+
+  - name: "master201531-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "2gb-memory", "master201531", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+  - name: "master201523-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "1gb-memory", "master201523", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+#  - name: "master201522-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "master201522", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+#  - name: "master201522-ubuntu1404"
+#    box:  "puppetlabs/ubuntu-14.04-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "master201522", "customize_pe_via_hiera_2015", "hosts" , "auto_net" ]
+
+#  - name: "master201521-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "master201521", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+#  - name: "master20152-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "master20152", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+
+#  - name: "agent20152-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "agent_20152", "centos", "hosts" , "auto_net" ]
+
+  - name: "master385-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "1gb-memory", "master385", "customize_pe_via_hiera", "centos", "hosts" , "auto_net" ]
+
+  - name: "master384-centos"
+    #6.4 will fail to setup default classification
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "1gb-memory", "master384", "customize_pe_via_hiera", "centos", "hosts" , "auto_net" ]
+
+  - name: "master383-centos"
+    #6.4 will fail to setup default classification
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "1gb-memory", "master383", "customize_pe_via_hiera", "centos", "hosts" , "auto_net" ]
+
+  - name: "agent385-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "agent_385", "centos", "hosts" , "auto_net" ]
+
+#  - name: "master381-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "master381", "customize_pe_via_hiera", "centos", "hosts" , "auto_net" ]
+
+#  - name: "agent381-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "agent_381", "centos", "hosts" , "auto_net" ]
+
+#  - name: "master380-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4gb-memory", "master380", "customize_pe_via_hiera", "centos" ]
+
+#  - name: "agent380-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "agent_380", "centos", "hosts" , "auto_net" ]
+
+  - name: "master372-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    roles: [ "4-cpus", "1gb-memory", "master372", "customize_pe_via_hiera", "centos", "hosts", "auto_net" ]
+
+#  - name: "agent372-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "agent_372", "centos", "hosts" , "auto_net" ]
+
+  - name: "agent382-server2008r2"
+    box: "windows-server-2008-r2-x64-v2"
+    roles: [ "windows_agent_382", "windows_base", "hosts" , "auto_net" ]
+
+  - name: "agent201531-server2008r2"
+    box: "windows-server-2008-r2-x64-v2"
+    roles: [ "windows_agent_201531", "windows_base", "hosts" , "auto_net"]
+
+#  - name: "agent400-server2008r2"
+#    box: "windows-server-2008-r2-x64-v2"
+#    roles: [ "windows_agent_400", "windows_base", "hosts" , "auto_net" ]
+
+#  - name: "agent372-server2008r2"
+#    box: "windows-server-2008-r2-x64-v2"
+#    roles: [ "windows_agent_372", "windows_base", "hosts" , "auto_net" ]
+
+#  - name: "master371-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "master371", "customize_pe_via_hiera", "centos", "hosts" , "auto_net" ]
+
+#  - name: "agent371-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "agent_371", "centos", "hosts" , "auto_net" ]
+
+#  - name: "master370-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "master370", "customize_pe_via_hiera", "centos", "hosts" , "auto_net" ]
+
+#  - name: "agent370-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "agent_370", "centos", "hosts" , "auto_net" ]
+
+  - name: "agent-no-pe-ubuntu1404"
+    box:  "puppetlabs/ubuntu-14.04-64-nocm"
+    roles: [ "customize_pe_via_hiera_2015", "hosts" , "auto_net" ]
+
+  - name: "agent-no-pe-centos"
+    box:  "puppetlabs/centos-6.6-64-nocm"
+    #box: puppetlabs/centos-6.6-64-nocm
+    roles: [ "centos", "hosts", "customize_pe_via_hiera_2015", "hosts" , "auto_net" ]
+
+  - name: "agent-no-pe-solaris10"
+    box:  "solaris-10u11-i386-virtualbox-nocm"
+    roles: [ "no_pe", "hosts" , "auto_net" ]
+
+  - name: "agent-no-pe-centos7"
+    #box:  "puppetlabs/centos-6.6-64-nocm"
+    box: "puppetlabs/centos-7.0-64-nocm"
+    roles: [ "no_pe", "centos7", "hosts" , "auto_net" ]
+
+#  - name: "master332-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "customize_pe_via_hiera", "master332", "centos", "hosts" , "auto_net" ]
+
+#  - name: "master323-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "customize_pe_via_hiera", "master323", "centos", "hosts" , "auto_net"]
+
+#  - name: "agent332-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "agent_332", "centos", "hosts" , "auto_net" ]
+
+#  - name: "master311-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ "4-cpus", "1gb-memory", "customize_pe_via_hiera", "master311", "centos", "hosts" , "auto_net" ]
+
+#  - name: "master288-centos"
+#    box:  "puppetlabs/centos-6.6-64-nocm"
+#    roles: [ “2gb-memory", "master288", "centos", "hosts" , "auto_net" ]
