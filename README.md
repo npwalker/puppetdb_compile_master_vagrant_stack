@@ -31,6 +31,25 @@ _The only good bug is a dead bug._
 
 This project provides a batteries-included Vagrant environment for debugging Puppet powered infrastructures.
 
+# Tuning PuppetDB and Puppet Server Together
+
+## Disable gc-interval on PuppetDB
+
+Only one PuppetDB should ever perform GC on the database so each compile master should disable [gc-interval](https://docs.puppet.com/puppetdb/latest/configure.html#gc-interval).
+
+## CPUs = puppet server jrubies + puppetdb command processing threads + 1
+
+In order to prevent a situation in which a thundering herd of traffic would cause puppet server and puppetdb to compete for resources you want to make sure jrubies + command processing threads < # CPUs.
+
+I recommend setting PuppetDB command processing threads to 1 to start with and see if that allows for adequate throughput.  You can monitor the QueueSize in PuppetDB with the [pe_metric_curl_cron_jobs](https://github.com/npwalker/pe_metric_curl_cron_jobs) to make sure you're not seeing a backup of commands.  If you do see a backup then add a command processing thread and reduce by one jruby.
+
+## Set max_connections in PostgreSQL to 1000
+
+Each PuppetDB uses 50 connections to PostgreSQL by default.  So, you need to increase max_connections to allow for all of those connections.
+
+If you are adding more than 4 puppetdb nodes then you might want to consider tuning down the connection pools to reduce the connection overhead on the postgresql side.  There are parameters for read and write connection pool sizes in the puppet_enterprise module.
+
+My understanding is that you need a read connection for each jruby instance and you need roughly 2x command processing threads for write connections.  This assumes the console will use the PuppetDB instance on the MoM for it's read queries.
 
 ## Setup
 
