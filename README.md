@@ -5,7 +5,7 @@
 ```
 vagrant destroy -f
 vagrant up
-vagrant ssh master201621-centos -c "sudo puppet agent -t"
+vagrant ssh puppet-master-centos -c "sudo puppet agent -t"
 ```
 
 ## To Confirm you can run an agent against the compile master with PuppetDB

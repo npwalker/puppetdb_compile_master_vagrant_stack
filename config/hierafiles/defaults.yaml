@@ -3,15 +3,24 @@
 #to work around a bug
 pe_install::puppetdb_certname: "%{::clientcert}"
 
+
 #have to the certnames instead of only dynamically using ::clientcert
 #include clientcert at the beginning to make sure local puppetdb is used
 #before a central one
 puppet_enterprise::puppetdb_host:
- - 'master201621-centos'
+ - 'puppet-master-centos'
  - 'compile-master-puppetdb'
 puppet_enterprise::puppetdb_port:
  - '8081'
  - '8081'
+
+#this class doesn't take params for puppetdb_host and puppetdb_port which sucks
+#we could probably interpolate the server and port from above but this is just
+#a prototype
+#Since pe_install::puppetdb_certname is a single entry and there's no way to
+#override the puppetdb_port in pe_install we get mismatching arrays passed here
+puppet_enterprise::profile::controller::puppetdb_urls:
+ - 'https://puppet-master-centos:8081'
 
 
 #Drop puppetdb Java Heap Size
@@ -23,7 +32,7 @@ pe_puppetdb::pe::java_args:
 pe_puppetdb::java_args:
   -Xmx: '256m'
   -Xms: '64m'
-#Drop the activemq java heap size 
+#Drop the activemq java heap size
 pe_mcollective::role::master::activemq_heap_mb: '96'
 #Allow access to the puppetdb performance dashboard from non-localhost
 #This is insecure and also allows access to all API endpoints without verification

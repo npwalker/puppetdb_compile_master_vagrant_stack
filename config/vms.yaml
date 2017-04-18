@@ -1,9 +1,9 @@
 ---
 vms:
-  - name: "master201621-centos"
+  - name: "puppet-master-centos"
     box:  "puppetlabs/centos-6.6-64-nocm"
-    roles: [ "compile_master_puppetdb_node_group", "4-cpus", "2gb-memory", "master201621", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+    roles: [ "compile_master_puppetdb_node_group", "2gb-memory", "master_latest", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
 
   - name: "compile-master-puppetdb"
     box:  "puppetlabs/centos-6.6-64-nocm"
-    roles: [ "agent_201621", "4-cpus", "2gb-memory", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]
+    roles: [ "agent_latest", "2gb-memory", "customize_pe_via_hiera_2015", "centos", "hosts" , "auto_net" ]

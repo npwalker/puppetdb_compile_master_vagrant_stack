@@ -11,8 +11,8 @@
 
   pe_node_group { 'PE Master Override' :
     parent  => 'PE Master',
-    pinned  => ['master201621-centos'],
+    pinned  => ['puppet-master-centos'],
     classes => {
-      'puppet_enterprise::profile::master' => { 'puppetdb_host' => ['master201621-centos', 'compile-master-puppetdb'] },
+      'puppet_enterprise::profile::master' => { 'puppetdb_host' => ['puppet-master-centos', 'compile-master-puppetdb'] },
     }
   }
